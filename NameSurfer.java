@@ -9,7 +9,7 @@ import acm.program.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class NameSurfer extends Program implements NameSurferConstants {
+public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
 
 /* Method: init() */
 /**
@@ -17,7 +17,14 @@ public class NameSurfer extends Program implements NameSurferConstants {
  * and initializing the interactors at the bottom of the window.
  */
 	public void init() {
-	    // You fill this in, along with any helper methods //
+		nameLabel = new JLabel("Name:")
+	    add(nameLabel,SOUTH);
+		name = new JTextField(MAX)
+		
+	    add(name,SOUTH);
+	    add(graph,SOUTH);
+	    add(clear,SOUTH);
+	   
 	}
 
 /* Method: actionPerformed(e) */
@@ -29,4 +36,14 @@ public class NameSurfer extends Program implements NameSurferConstants {
 	public void actionPerformed(ActionEvent e) {
 		// You fill this in //
 	}
+	
+	
+/*instance variables*/
+
+private  JLabel nameLabel;
+private JTextField name;
+private JButton graph;
+private JButton clear;
 }
+
+

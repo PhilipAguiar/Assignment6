@@ -37,7 +37,7 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
  * button actions.
  */
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == name) {
+		if (e.getSource() == graph) {
 		println(name);	}
 	}
 	

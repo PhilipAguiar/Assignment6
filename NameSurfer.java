@@ -20,14 +20,9 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
  */
 	public void init() {
 		nameLabel = new JLabel("Name: ");
-		name = new JTextField(20);
-		name.requestFocusInWindow();
-		name.grabFocus();
-		name.setFocusable(true);
-		name.setEditable(true);
-		name.setEnabled(true);
 		add(nameLabel,SOUTH);
 	    add(name,SOUTH);
+	    
 	    graph = new JButton("Graph");
 	    clear= new JButton("Clear");
 	    add(graph,SOUTH);
@@ -57,7 +52,7 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
 /*instance variables*/
 
 private  JLabel nameLabel;
-private JTextField name;
+private JTextField name = new JTextField(20);;
 private JButton graph;
 private JButton clear;
 }

@@ -42,7 +42,7 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
 		if (e.getSource() == name) {
 		println(name.getText());	}
 		if (e.getSource() == graph) {
-			println("graph");	}
+			println("graph" + name.getText());	}
 		if (e.getSource() == clear) {
 			println("clear");	}
 		

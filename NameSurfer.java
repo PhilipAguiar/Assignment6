@@ -28,7 +28,7 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
 	    add(clear,SOUTH);
 	    
 	    addActionListeners();
-	   name.addActionListener(this);
+	//   name.addActionListener(this);
 	}
 
 /* Method: actionPerformed(e) */

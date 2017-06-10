@@ -21,6 +21,8 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
 	public void init() {
 		nameLabel = new JLabel("Name: ");
 		name = new JTextField(20);
+		name.addActionListener(this);
+
 		name.setEditable(true);
 		name.setEnabled(true);
 		add(nameLabel,SOUTH);
@@ -31,7 +33,6 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
 	    add(clear,SOUTH);
 	    
 	    addActionListeners();
-	  name.addActionListener(this);
 	}
 
 /* Method: actionPerformed(e) */

@@ -19,10 +19,10 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
  * and initializing the interactors at the bottom of the window.
  */
 	public void init() {
-		nameLabel = new JLabel("Name: ");
+	//	nameLabel = new JLabel("Name: ");
 		name = new JTextField(20);
 		name.setEditable(true);
-		add(nameLabel,SOUTH);
+	//	add(nameLabel,SOUTH);
 	    add(name,SOUTH);
 	    graph = new JButton("Graph");
 	    clear= new JButton("Clear");

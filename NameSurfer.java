@@ -17,14 +17,17 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
  * and initializing the interactors at the bottom of the window.
  */
 	public void init() {
-		nameLabel = new JLabel("Name:")
-	    add(nameLabel,SOUTH);
-		name = new JTextField(MAX)
+		nameLabel = new JLabel("Name:");
+		name = new JTextField(20);
 		
+		add(nameLabel,SOUTH);
 	    add(name,SOUTH);
+	    
 	    add(graph,SOUTH);
 	    add(clear,SOUTH);
-	   
+	    
+	    addActionListeners();
+	   name.addActionListener(this);
 	}
 
 /* Method: actionPerformed(e) */
@@ -34,7 +37,8 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
  * button actions.
  */
 	public void actionPerformed(ActionEvent e) {
-		// You fill this in //
+		if (e.getSource() == name) {
+		println(name);	}
 	}
 	
 	

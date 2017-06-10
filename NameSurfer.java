@@ -21,7 +21,7 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
 	public void init() {
 		nameLabel = new JLabel("Name: ");
 		name = new JTextField(20);
-		name.requestFocus();
+		name.requestFocusInWindow();
 		name.setFocusable(true);
 		name.setEditable(true);
 		name.setEnabled(true);

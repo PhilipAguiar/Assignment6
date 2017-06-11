@@ -8,7 +8,7 @@ public class test extends ConsoleProgram {
 		
 		entry = new NameSurferEntry(Sam);
 		println(entry.getName());
-		println(entry.find));
+		println(entry.getRank(1));
 		println(entry.toString());
 	}
 	

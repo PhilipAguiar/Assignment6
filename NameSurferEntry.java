@@ -44,7 +44,7 @@ public class NameSurferEntry extends ConsoleProgram implements NameSurferConstan
 	    decadeArray[i]= intDecade;
 		
 		}
-		decadeArray[NDECADES-1] = Integer.parseInt(decades);
+		decadeArray[NDECADES-1] = Integer.parseInt(slice);
 	}
 	/* Method: getName() */
 	/**

@@ -7,7 +7,6 @@
  * of that name for each decade stretching back to 1900.
  */
 
-import acm.program.ConsoleProgram;
 import acm.util.*;
 import java.util.*;
 

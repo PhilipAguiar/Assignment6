@@ -20,10 +20,8 @@ public class NameSurferEntry  implements NameSurferConstants {
 	 */
 
 	public NameSurferEntry(String line) {
-		int nameStart = line.indexOf(0);
-		int nameEnd = line.indexOf(" ");
-		name = line.substring(nameStart, nameEnd);
-		decades = line.substring(nameEnd).trim();
+		name = line.substring(0, line.indexOf(" "));
+		decades = line.substring(line.indexOf(" ")).trim();
 
 		cutDecades(decades);
 

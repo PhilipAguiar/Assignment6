@@ -50,12 +50,12 @@ public class NameSurferDataBase implements NameSurferConstants {
 	 */
 	public NameSurferEntry findEntry(String name) {
 
-		name = checkName(name);
+	//	name = checkName(name);
 		return nameData.get(name);
 
 	}
 
-	private String checkName(String name) {
+/*	private String checkName(String name) {
 
 		char firstLetter = name.charAt(0);
 		if (Character.isLowerCase(firstLetter)) {
@@ -66,6 +66,6 @@ public class NameSurferDataBase implements NameSurferConstants {
 
 		name = firstLetter + otherLetters;
 		return name;
-
+*/
 	}
 }

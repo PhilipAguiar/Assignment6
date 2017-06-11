@@ -85,8 +85,7 @@ public class NameSurferEntry extends ConsoleProgram implements NameSurferConstan
 	}
 	private String decades="";
 	private String name="";
-	private int entryStart;
-	private int entryEnd;
+
 	public int[] decadeArray = new int[NDECADES];
 
 }

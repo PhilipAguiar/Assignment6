@@ -79,7 +79,6 @@ public class NameSurferEntry  implements NameSurferConstants {
 
 	private String decades = "";
 	private String name = "";
-
 	public int[] decadeArray = new int[NDECADES];
 
 }

@@ -38,10 +38,8 @@ public class NameSurferEntry extends ConsoleProgram implements NameSurferConstan
 	private void cutDecades(String decades){
 		
 		for (int i = 0; i < NDECADES-1; i++) {
-	    String slice = decades.substring(0, decades.indexOf(" "+1));	
-	    int intDecade = Integer.parseInt(slice);
-	    
-	    decadeArray[i]= intDecade;
+	    decadeArray[i] = Integer.parseInt(decades.substring(0,decades.indexOf(" ")));	
+	    decades = decades.substring(decades.indexOf(" "), + 1);
 		
 		}
 		decadeArray[NDECADES-1] = Integer.parseInt(decades);

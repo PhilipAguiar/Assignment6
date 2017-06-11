@@ -28,7 +28,7 @@ public class NameSurferEntry extends ConsoleProgram implements NameSurferConstan
 		name = line.substring(nameStart, nameEnd);
 		decades = line.substring(nameEnd).trim();
 		
-	
+		cutDecades(decades);
                 
 		
 		    

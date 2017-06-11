@@ -20,31 +20,32 @@ public class NameSurferEntry extends ConsoleProgram implements NameSurferConstan
 	 * file. Each line begins with the name, which is followed by integers
 	 * giving the rank of that name for each decade.
 	 */
-	public void run(){
-		
-		NameSurferEntry(Sam);
-	}
 	
-	public void NameSurferEntry(String line) {
+	
+	public  NameSurferEntry(String line) {
 		int nameStart = line.indexOf(0);
 		int nameEnd = line.indexOf(" ");
-		String albumName = line.substring(nameStart, nameEnd);
-
-		for (int i = 0; i < 10; i++) {
-			if (i == 0) {
-				int entryStart = line.indexOf(" ", nameEnd + 1);
-				int entryEnd = line.indexOf(" ", entryStart + 1);
-				String rank = line.substring(entryStart,entryEnd);
-                rankList[i]=  rank;
-                System.out.println(rankList[i]);
-			} else {
-		    entryStart= line.indexOf(" ",entryEnd+1);
-		    entryEnd = line.indexOf(" ",entryStart+1);
-			String rank = line.substring(entryStart, entryEnd);
-
-			rankList[i]=  rank;		}}
-	}
+		name = line.substring(nameStart, nameEnd);
+		decades = line.substring(nameEnd).trim();
+		
 	
+                
+		
+		    
+			
+			}
+	
+	private void cutDecades(String decades){
+		
+		for (int i = 0; i < NDECADES-1; i++) {
+	    String slice = decades.substring(0, decades.indexOf(" "+1));	
+	    int intDecade = Integer.parseInt(slice);
+	    
+	    decadeArray[i]= intDecade;
+		
+		}
+		decadeArray[NDECADES-1] = Integer.parseInt(decades);
+	}
 	/* Method: getName() */
 	/**
 	 * Returns the name associated with this entry.
@@ -63,7 +64,7 @@ public class NameSurferEntry extends ConsoleProgram implements NameSurferConstan
 	 */
 	public int getRank(int decade) {
 		// You need to turn this stub into a real implementation //
-		return 0;
+		return decadeArray[decade];
 	}
 
 	/* Method: toString() */
@@ -73,13 +74,21 @@ public class NameSurferEntry extends ConsoleProgram implements NameSurferConstan
 	 */
 	public String toString() {
 		// You need to turn this stub into a real implementation //
-		return "";
+		
+		String result = "\"" + name + " [";
+		
+		for (int i = 0; i < NDECADES-1; i++) {
+			result+= decadeArray[i] + " ";
+			
+		}
+		result += decadeArray[NDECADES-1]+ "]\"";
+		return result;
 	
 	}
-	private String Sam = "Sam 58 69 99 131 168 236 278 380 467 408 466";
+	private String decades="";
+	private String name="";
 	private int entryStart;
 	private int entryEnd;
-	private String name;
-	public String[] rankList = new String[10];
+	public int[] decadeArray = new int[NDECADES];
 
 }

@@ -7,12 +7,12 @@
  * of that name for each decade stretching back to 1900.
  */
 
+import acm.program.ConsoleProgram;
 import acm.util.*;
 import java.util.*;
 
 public class NameSurferEntry implements NameSurferConstants {
 
-	private String Sam = "Sam 58 69 99 131 168 236 278 380 467 408 466";
 
 	/* Constructor: NameSurferEntry(line) */
 	/**
@@ -20,7 +20,12 @@ public class NameSurferEntry implements NameSurferConstants {
 	 * file. Each line begins with the name, which is followed by integers
 	 * giving the rank of that name for each decade.
 	 */
-	public NameSurferEntry(String line) {
+	public void run(){
+		
+		NameSurferEntry(Sam);
+	}
+	
+	public void NameSurferEntry(String line) {
 		int nameStart = line.indexOf(0);
 		int nameEnd = line.indexOf(" ");
 		String albumName = line.substring(nameStart, nameEnd);
@@ -31,6 +36,7 @@ public class NameSurferEntry implements NameSurferConstants {
 				int entryEnd = line.indexOf(" ", entryStart + 1);
 				String rank = line.substring(entryStart,entryEnd);
                 rankList[i]=  rank;
+                System.out.println(rankList[i]);
 			} else {
 		    entryStart= line.indexOf(" ",entryEnd+1);
 		    entryEnd = line.indexOf(" ",entryStart+1);
@@ -38,7 +44,7 @@ public class NameSurferEntry implements NameSurferConstants {
 
 			rankList[i]=  rank;		}}
 	}
-
+	
 	/* Method: getName() */
 	/**
 	 * Returns the name associated with this entry.
@@ -70,9 +76,10 @@ public class NameSurferEntry implements NameSurferConstants {
 		return "";
 	
 	}
+	private String Sam = "Sam 58 69 99 131 168 236 278 380 467 408 466";
 	private int entryStart;
 	private int entryEnd;
 	private String name;
-	private String[] rankList = new String[10];
+	public String[] rankList = new String[10];
 
 }

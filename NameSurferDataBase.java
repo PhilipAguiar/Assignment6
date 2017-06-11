@@ -66,6 +66,6 @@ public class NameSurferDataBase implements NameSurferConstants {
 
 		name = firstLetter + otherLetters;
 		return name;
-*/
-	}
+
+	}*/
 }

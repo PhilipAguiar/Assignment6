@@ -11,7 +11,7 @@ import acm.program.ConsoleProgram;
 import acm.util.*;
 import java.util.*;
 
-public class NameSurferEntry implements NameSurferConstants {
+public class NameSurferEntry extends ConsoleProgram implements NameSurferConstants {
 
 
 	/* Constructor: NameSurferEntry(line) */

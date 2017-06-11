@@ -40,7 +40,9 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
  */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == name) {
-		println(name.getText());	}
+		println(name.getText());
+		NameSurferEntry entry= new NameSurferEntry(name.getText());
+		println(entry.toString());}
 		if (e.getSource() == graph) {
 			println("graph" + name.getText());	}
 		if (e.getSource() == clear) {
@@ -52,7 +54,8 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
 /*instance variables*/
 
 private  JLabel nameLabel;
-private JTextField name = new JTextField(20);;
+private JTextField name = new JTextField(20);	
+private NameSurferDataBase nameData = new NameSurferDataBase("names-data.txt");
 private JButton graph;
 private JButton clear;
 }

@@ -11,8 +11,7 @@ import acm.program.ConsoleProgram;
 import acm.util.*;
 import java.util.*;
 
-public class NameSurferEntry extends ConsoleProgram implements NameSurferConstants {
-
+public class NameSurferEntry  implements NameSurferConstants {
 
 	/* Constructor: NameSurferEntry(line) */
 	/**
@@ -20,30 +19,27 @@ public class NameSurferEntry extends ConsoleProgram implements NameSurferConstan
 	 * file. Each line begins with the name, which is followed by integers
 	 * giving the rank of that name for each decade.
 	 */
-	
-	
-	public  NameSurferEntry(String line) {
+
+	public NameSurferEntry(String line) {
 		int nameStart = line.indexOf(0);
 		int nameEnd = line.indexOf(" ");
 		name = line.substring(nameStart, nameEnd);
 		decades = line.substring(nameEnd).trim();
-		
+
 		cutDecades(decades);
-                
-		
-		    
-			
-			}
-	
-	private void cutDecades(String decades){
-		
-		for (int i = 0; i < NDECADES-1; i++) {
-	    decadeArray[i] = Integer.parseInt(decades.substring(0,decades.indexOf(" ")));	
-	    decades = decades.substring(decades.indexOf(" "), + 1);
-		
-		}
-		decadeArray[NDECADES-1] = Integer.parseInt(decades);
+
 	}
+
+	private void cutDecades(String decades) {
+
+		for (int i = 0; i < NDECADES - 1; i++) {
+			decadeArray[i] = Integer.parseInt(decades.substring(0, decades.indexOf(" ")));
+			decades = decades.substring(decades.indexOf(" "), +1);
+
+		}
+		decadeArray[NDECADES - 1] = Integer.parseInt(decades);
+	}
+
 	/* Method: getName() */
 	/**
 	 * Returns the name associated with this entry.
@@ -72,19 +68,20 @@ public class NameSurferEntry extends ConsoleProgram implements NameSurferConstan
 	 */
 	public String toString() {
 		// You need to turn this stub into a real implementation //
-		
+
 		String result = "\"" + name + " [";
-		
-		for (int i = 0; i < NDECADES-1; i++) {
-			result+= decadeArray[i] + " ";
-			
+
+		for (int i = 0; i < NDECADES - 1; i++) {
+			result += decadeArray[i] + " ";
+
 		}
-		result += decadeArray[NDECADES-1]+ "]\"";
+		result += decadeArray[NDECADES - 1] + "]\"";
 		return result;
-	
+
 	}
-	private String decades="";
-	private String name="";
+
+	private String decades = "";
+	private String name = "";
 
 	public int[] decadeArray = new int[NDECADES];
 

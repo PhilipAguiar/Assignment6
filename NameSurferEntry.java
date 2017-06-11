@@ -11,7 +11,7 @@ import acm.program.ConsoleProgram;
 import acm.util.*;
 import java.util.*;
 
-public class NameSurferEntry extends ConsoleProgram implements NameSurferConstants {
+public class NameSurferEntry implements NameSurferConstants {
 
 	private String Sam = "Sam 58 69 99 131 168 236 278 380 467 408 466";
 
@@ -32,7 +32,7 @@ public class NameSurferEntry extends ConsoleProgram implements NameSurferConstan
 				int entryEnd = line.indexOf(" ", entryStart + 1);
 				String rank = line.substring(entryStart,entryEnd);
                 rankList[i]=  rank;
-                println(rankList[i]);
+                System.out.println(rankList[i]);
 			} else {
 		    entryStart= line.indexOf(" ",entryEnd+1);
 		    entryEnd = line.indexOf(" ",entryStart+1);

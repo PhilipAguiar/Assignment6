@@ -17,7 +17,6 @@ import acm.util.*;
 
 public class NameSurferDataBase implements NameSurferConstants {
 
-	private HashMap<String, NameSurferEntry> nameData = new HashMap<String, NameSurferEntry>();
 
 	/* Constructor: NameSurferDataBase(filename) */
 	/**
@@ -50,12 +49,12 @@ public class NameSurferDataBase implements NameSurferConstants {
 	 */
 	public NameSurferEntry findEntry(String name) {
 
-	//	name = checkName(name);
+		name = checkName(name);
 		return nameData.get(name);
 
 	}
 
-/*	private String checkName(String name) {
+	private String checkName(String name) {
 
 		char firstLetter = name.charAt(0);
 		if (Character.isLowerCase(firstLetter)) {
@@ -67,5 +66,7 @@ public class NameSurferDataBase implements NameSurferConstants {
 		name = firstLetter + otherLetters;
 		return name;
 
-	}*/
+	}	private HashMap<String, NameSurferEntry> nameData = new HashMap<String, NameSurferEntry>();
+
+	
 }

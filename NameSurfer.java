@@ -39,7 +39,6 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
 	 */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == name) {
-		println(name.getText());
 		NameSurferEntry entry= new NameSurferEntry(name.getText());
 		println(entry.toString());}
 		

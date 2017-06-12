@@ -33,15 +33,14 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
 	}
 
 /* Method: actionPerformed(e) */
-	/**
-	 * This class is responsible for detecting when the buttons are clicked, so
-	 * you will have to define a method to respond to button actions.
-	 */
+/**
+ * This class is responsible for detecting when the buttons are
+ * clicked, so you will have to define a method to respond to
+ * button actions.
+ */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == name) {
-		NameSurferEntry entry= new NameSurferEntry(name.getText());
-		println(entry.toString());}
-		
+		println(name.getText());	}
 		if (e.getSource() == graph) {
 			println("graph" + name.getText());	}
 		if (e.getSource() == clear) {
@@ -55,6 +54,8 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
 private  JLabel nameLabel;
 private JTextField name = new JTextField(20);	
 private NameSurferDataBase nameData = new NameSurferDataBase("names-data.txt");
+
+
 private JButton graph;
 private JButton clear;
 }

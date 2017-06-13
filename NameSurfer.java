@@ -21,8 +21,11 @@ public class NameSurfer extends Program implements NameSurferConstants {
 	public void init() {
 		nameLabel = new JLabel("Name: ");
 		add(nameLabel,SOUTH);
+		
+		nameField = new JTextField(30);
 	    add(nameField,SOUTH);
-	    
+	   nameField.addActionListener(this); 
+	   
 	    graphButton = new JButton("Graph");
 	    clearButton= new JButton("Clear");
 	    add(graphButton,SOUTH);
@@ -31,7 +34,7 @@ public class NameSurfer extends Program implements NameSurferConstants {
 	    graph = new NameSurferGraph();
 	    add(graph);
 	    
-		nameField.addActionListener(this);
+		
 	    addActionListeners();
 	}
 
@@ -61,7 +64,7 @@ public class NameSurfer extends Program implements NameSurferConstants {
 /*instance variables*/
 
 private  JLabel nameLabel;
-private JTextField nameField = new JTextField(20);	
+private JTextField nameField;	
 private NameSurferDataBase nameData = new NameSurferDataBase("names-data.txt");
 private NameSurferGraph graph;
 private JButton graphButton;

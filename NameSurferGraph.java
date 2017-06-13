@@ -19,15 +19,15 @@ public class NameSurferGraph extends GCanvas
 	*/
 	public NameSurferGraph() {
 		addComponentListener(this);
-		
+		 entryArray = new ArrayList<NameSurferEntry>();
 	}
 	
 	/**
 	* Clears the list of name surfer entries stored inside this class.
 	*/
 	public void clear() {
-		
-		removeAll();
+		entryArray.clear();
+		update();
 		
 		
 	}
@@ -39,10 +39,20 @@ public class NameSurferGraph extends GCanvas
 	* simply stores the entry; the graph is drawn by calling update.
 	*/
 	public void addEntry(NameSurferEntry entry) {
-		// You fill this in //
-	}
+		
+		entryArray.add(entry);
+
+		}
+		
+		
+		
+		
+		
+		
+	
 	
 	private void drawGraph(){
+		/*adds top and bottom horizontal lines*/
 		
 		GLine topMargin = new GLine(0,GRAPH_MARGIN_SIZE,getWidth(),GRAPH_MARGIN_SIZE);
 		graph.add(topMargin);
@@ -50,6 +60,8 @@ public class NameSurferGraph extends GCanvas
 		GLine botMargin = new GLine(0,getHeight()-GRAPH_MARGIN_SIZE,getWidth(),getHeight()-GRAPH_MARGIN_SIZE);
 		graph.add(botMargin);
 		
+		
+		/*adds column lines */
 		for(int i=1;i<NDECADES;i++){
 			
 		GLine decadeColumns = new GLine((getWidth()/NDECADES)*i,0,(getWidth()/NDECADES)*i,getHeight());
@@ -57,6 +69,7 @@ public class NameSurferGraph extends GCanvas
 		
 		}
 		
+		/*adds date labels*/
 		
 		for(int i= 0;i<NDECADES;i++){
 		String label = Integer.toString(START_DECADE+(i*10));	
@@ -80,15 +93,41 @@ public class NameSurferGraph extends GCanvas
 		removeAll();
 		graph.removeAll();
 		drawGraph();
+		
+		
+		for(int i=0;i<NDECADES;i++){
+			
+			
+			
+		}
+	}
+	
+	private Color colorsCycle(int color){
+		
+		switch(color){
+			
+		case 0: return Color.BLACK;
+		case 1: return Color.RED;
+		case 2: return Color.BLUE;
+		case 3: return Color.MAGENTA;
+		
+		
+		}
+		return Color.BLACK;
+		
+		
 	}
 	
 	
-	
-	
 	/* Implementation of the ComponentListener interface */
-	private GCompound graph = new GCompound();
+	
 	public void componentHidden(ComponentEvent e) { }
 	public void componentMoved(ComponentEvent e) { }
 	public void componentResized(ComponentEvent e) { update(); }
 	public void componentShown(ComponentEvent e) { }
+	
+	/*instance variables*/
+	private int color = 0;
+	private GCompound graph = new GCompound();
+	private ArrayList<NameSurferEntry> entryArray;
 }

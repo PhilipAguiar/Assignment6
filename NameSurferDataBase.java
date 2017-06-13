@@ -54,6 +54,8 @@ public class NameSurferDataBase implements NameSurferConstants {
 
 	}
 
+	/* Makes user input into correct case to find data */
+	
 	private String checkName(String name) {
 
 		char firstLetter = name.charAt(0);

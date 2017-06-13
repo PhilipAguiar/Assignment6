@@ -54,10 +54,10 @@ public class NameSurferGraph extends GCanvas
 	private void drawGraph(){
 		/*adds top and bottom horizontal lines*/
 		
-		GLine topMargin = new GLine(0,GRAPH_MARGIN_SIZE,getWidth(),GRAPH_MARGIN_SIZE);
+		GLine topMargin = new GLine(0,graphTopX,getWidth(),GRAPH_MARGIN_SIZE);
 		graph.add(topMargin);
 		
-		GLine botMargin = new GLine(0,getHeight()-GRAPH_MARGIN_SIZE,getWidth(),getHeight()-GRAPH_MARGIN_SIZE);
+		GLine botMargin = new GLine(0,graphBotX,getWidth(),getHeight()-GRAPH_MARGIN_SIZE);
 		graph.add(botMargin);
 		
 		
@@ -95,14 +95,20 @@ public class NameSurferGraph extends GCanvas
 		drawGraph();
 		
 		
-		for(int i=0;i<NDECADES;i++){
+		for(int i=0;i<=NDECADES;i++){
+			
+			
+			
+			GLine data = new GLine((getWidth()/NDECADES)*i,entryArray.get(i).getRank(i),,);
+			data.setColor(colorCycle(color));
+			color = (color + i)%4;
 			
 			
 			
 		}
 	}
 	
-	private Color colorsCycle(int color){
+	private Color colorCycle(int color){
 		
 		switch(color){
 			
@@ -128,6 +134,8 @@ public class NameSurferGraph extends GCanvas
 	
 	/*instance variables*/
 	private int color = 0;
+	private int graphTopX = GRAPH_MARGIN_SIZE;
+	private int graphBotX = getHeight()-GRAPH_MARGIN_SIZE; 		
 	private GCompound graph = new GCompound();
 	private ArrayList<NameSurferEntry> entryArray;
 }

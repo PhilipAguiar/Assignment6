@@ -97,22 +97,33 @@ public class NameSurferGraph extends GCanvas
 		
 		for(int i=0;i<=NDECADES;i++){
 			
+			int rank = entryArray.get(i).getRank(i);
 			
-			int leftY = (entryArray.get(i).getRank(i)/MAX_RANK) * graphSpace;
-			int rightY = (entryArray.get(i+1).getRank(i+1)/MAX_RANK) * graphSpace;
-			int leftX = (getWidth()/NDECADES)*i;
-			int rightX = (getWidth()/NDECADES)*i+1;
+			
 
-			GLine data = new GLine(leftX,leftY,rightX,rightY);
+			if (rank!=0){
+			GLine data = new GLine((getWidth()/NDECADES)*i,getRankY(i),(getWidth()/NDECADES)*i+1,getRankY(i+1));
 			data.setColor(colorCycle(color));
 			color = (color + i)%4;
 			
 			add(data);
-			
+			}
 			
 			
 		}
 	}
+	
+	private int getRankY(int rank){
+		if (rank!=0){
+	rank = (rank/MAX_RANK * graphSpace)+GRAPH_MARGIN_SIZE;
+		return rank;}
+		else {
+			rank = getHeight() - GRAPH_MARGIN_SIZE;
+			return rank;
+		}
+	}
+	
+	
 	
 	private Color colorCycle(int color){
 		

@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
+public class NameSurfer extends Program implements NameSurferConstants {
 
 /* Method: init() */
 /**
@@ -40,12 +40,11 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
  */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == name) {
-		println(name.getText());	
-		println(nameData.findEntry(name.getText()));}
+		}
 		if (e.getSource() == graph) {
-			println("graph" + name.getText());	}
+				}
 		if (e.getSource() == clear) {
-			println("clear");	}
+				}
 		
 	}
 	

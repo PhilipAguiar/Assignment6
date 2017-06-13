@@ -102,9 +102,10 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 	}
 
 	private int getRankY(int rank) {
-			
+		double rankD = rank;
+		
 		if (rank != 0) {
-			rank = (rank / MAX_RANK * graphSpace) + GRAPH_MARGIN_SIZE;
+			rank = ((rank / MAX_RANK) * graphSpace) + GRAPH_MARGIN_SIZE;
 			return rank;
 		} else {
 			rank = getHeight() - GRAPH_MARGIN_SIZE;

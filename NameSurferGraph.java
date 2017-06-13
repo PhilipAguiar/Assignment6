@@ -94,8 +94,22 @@ public class NameSurferGraph extends GCanvas
 		graph.removeAll();
 		drawGraph();
 		
+		for( int i = 0; i < entryArray.size(); o++){
+
+			drawEntry(entryArray.get(i),i);
+			
+			
 		
-		for(int i=0;i<entryArray.size();i++){
+			
+			
+			
+		}
+	}
+	
+	private void drawEntry(NameSurferEntry entry){
+		
+
+		for(int i=0;i<NDECADES-1;i++){
 			
 			int rank = entryArray.get(i).getRank(i);
 		
@@ -105,10 +119,6 @@ public class NameSurferGraph extends GCanvas
 			color = (color + i)%4;
 			color++;
 			add(data);
-			
-			
-			
-		}
 	}
 	
 	private int getRankY(int rank){

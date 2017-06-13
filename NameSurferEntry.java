@@ -32,7 +32,7 @@ public class NameSurferEntry  implements NameSurferConstants {
 		decadeArray[parts] = Integer.parseInt(decades.substring(0, decades.indexOf(" ")));
 		decades = decades.substring(decades.indexOf(" ") + 1);
 		}
-		decadeArray[NDECADES – 1] = Integer.parseInt(decades);
+		decadeArray[NDECADES - 1] = Integer.parseInt(decades);
 		}
 
 	/* Method: getName() */

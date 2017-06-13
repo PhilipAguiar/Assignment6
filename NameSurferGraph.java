@@ -20,7 +20,7 @@ public class NameSurferGraph extends GraphicsProgram
 	* Creates a new NameSurferGraph object that displays the data.
 	*/
 	public NameSurferGraph() {
-		addComponentListener(this);
+//		addComponentListener(this);
 		
 		GLine topMargin = new GLine(0,GRAPH_MARGIN_SIZE,getWidth(),GRAPH_MARGIN_SIZE);
 		graph.add(topMargin);
@@ -72,8 +72,8 @@ public class NameSurferGraph extends GraphicsProgram
 	
 	/* Implementation of the ComponentListener interface */
 	private GCompound graph;
-	public void componentHidden(ComponentEvent e) { }
-	public void componentMoved(ComponentEvent e) { }
-	public void componentResized(ComponentEvent e) { update(); }
-	public void componentShown(ComponentEvent e) { }
+//	public void componentHidden(ComponentEvent e) { }
+	//public void componentMoved(ComponentEvent e) { }
+//	public void componentResized(ComponentEvent e) { update(); }
+	//public void componentShown(ComponentEvent e) { }
 }

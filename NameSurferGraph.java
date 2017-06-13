@@ -101,15 +101,15 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 		}
 	}
 
-	private int getRankY(int rank) {
+	private double getRankY(int rank) {
 		double rankD = rank;
 		
 		if (rank != 0) {
-			rank = ((rank / MAX_RANK) * graphSpace) + GRAPH_MARGIN_SIZE;
-			return rank;
+			rankD = ((rankD / MAX_RANK) * graphSpace) + GRAPH_MARGIN_SIZE;
+			return rankD;
 		} else {
-			rank = getHeight() - GRAPH_MARGIN_SIZE;
-			return rank;
+			rankD = getHeight() - GRAPH_MARGIN_SIZE;
+			return rankD;
 		}
 	}
 
@@ -148,7 +148,7 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 
 	/* instance variables */
 	private int color = 0;
-	private int graphSpace = ((getHeight() - GRAPH_MARGIN_SIZE) - GRAPH_MARGIN_SIZE);
+	private double graphSpace = ((getHeight() - GRAPH_MARGIN_SIZE) - GRAPH_MARGIN_SIZE);
 	private GCompound graph = new GCompound();
 	private ArrayList<NameSurferEntry> entryArray;
 }

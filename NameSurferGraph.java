@@ -55,7 +55,7 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 		/* adds column lines */
 		for (int i = 1; i < NDECADES; i++) {
 
-			GLine decadeColumns = new GLine((getWidth() / NDECADES) * i, 0, (getWidth() / NDECADES) * i, getHeight());
+			GLine decadeColumns = new GLine((spacing) * i, 0, (spacing) * i, getHeight());
 			graph.add(decadeColumns);
 
 		}
@@ -64,7 +64,7 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 
 		for (int i = 0; i < NDECADES; i++) {
 			String label = Integer.toString(START_DECADE + (i * 10));
-			GLabel year = new GLabel(label, (getWidth() / NDECADES) * i + 5, getHeight() - 5);
+			GLabel year = new GLabel(label, (spacing) * i + 5, getHeight() - 5);
 			graph.add(year);
 		}
 
@@ -90,7 +90,7 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 	}
 
 	private void drawEntry(NameSurferEntry entry) {
-		double spacing = getWidth() / NDECADES;
+		
 		for (int i = 0; i < NDECADES - 1; i++) {
 
 			GLine data = new GLine(spacing * i, getRankY(entry.getRank(i)),
@@ -150,6 +150,7 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 
 	/* instance variables */
 	private int color = 0;
+	double spacing = getWidth() / NDECADES;;
 	private double graphSpace = getHeight() - GRAPH_MARGIN_SIZE*2;
 	private GCompound graph = new GCompound();
 	private ArrayList<NameSurferEntry> entryArray;

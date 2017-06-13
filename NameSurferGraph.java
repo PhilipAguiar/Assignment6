@@ -28,7 +28,7 @@ public class NameSurferGraph extends GCanvas
 	public void clear() {
 		
 		removeAll();
-		drawGraph();
+		
 		
 	}
 	
@@ -78,6 +78,7 @@ public class NameSurferGraph extends GCanvas
 	*/
 	public void update() {
 		removeAll();
+		graph.removeAll();
 		drawGraph();
 	}
 	

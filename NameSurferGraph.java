@@ -105,7 +105,7 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 		double rankD = rank;
 		
 		if (rank != 0) {
-			rankD = ((rankD / MAX_RANK) * graphSpace) + GRAPH_MARGIN_SIZE;
+			rankD = ((rankD / MAX_RANK) * getHeight()-2*GRAPH_MARGIN_SIZE) + GRAPH_MARGIN_SIZE;
 			
 			
 		} else {
@@ -150,7 +150,6 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 
 	/* instance variables */
 	private int color = 0;
-	private double graphSpace = getHeight() - GRAPH_MARGIN_SIZE*2;
 	private GCompound graph = new GCompound();
 	private ArrayList<NameSurferEntry> entryArray;
 }

@@ -50,8 +50,9 @@ public class NameSurferDataBase implements NameSurferConstants {
 	public NameSurferEntry findEntry(String name) {
 
 		name = checkName(name);
+		if(nameData.containsKey(name)){
 		return nameData.get(name);
-
+		}else{return null;}
 	}
 
 	/* Makes user input into correct case to find data */

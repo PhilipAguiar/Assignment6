@@ -71,7 +71,7 @@ public class NameSurferGraph extends GCanvas
 		
 		/*adds date labels*/
 		
-		for(int i= 0;i<NDECADES;i++){
+		for(int i= 0;i<NDECADES-1;i++){
 		String label = Integer.toString(START_DECADE+(i*10));	
 		GLabel year = new GLabel(label,(getWidth()/NDECADES)*i+5,getHeight()-5);
 		graph.add(year); 	

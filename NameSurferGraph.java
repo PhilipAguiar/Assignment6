@@ -19,7 +19,9 @@ public class NameSurferGraph extends GCanvas
 	*/
 	public NameSurferGraph() {
 		addComponentListener(this);
-		//	 You fill in the rest //
+		
+		GLine margin = new GLine(0,GRAPH_MARGIN_SIZE,getWidth(),getHeight()-GRAPH_MARGIN_SIZE);
+		add(margin);
 	}
 	
 	/**
@@ -56,6 +58,7 @@ public class NameSurferGraph extends GCanvas
 	
 	
 	/* Implementation of the ComponentListener interface */
+	private GObject graph;
 	public void componentHidden(ComponentEvent e) { }
 	public void componentMoved(ComponentEvent e) { }
 	public void componentResized(ComponentEvent e) { update(); }

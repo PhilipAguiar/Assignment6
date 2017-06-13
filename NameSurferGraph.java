@@ -85,7 +85,7 @@ public class NameSurferGraph extends GCanvas
 	
 	
 	/* Implementation of the ComponentListener interface */
-	private GCompound graph;
+	private GCompound graph = new GCompound();
 	public void componentHidden(ComponentEvent e) { }
 	public void componentMoved(ComponentEvent e) { }
 	public void componentResized(ComponentEvent e) { update(); }

@@ -7,11 +7,13 @@
  */
 
 import acm.graphics.*;
+import acm.program.GraphicsProgram;
+
 import java.awt.event.*;
 import java.util.*;
 import java.awt.*;
 
-public class NameSurferGraph extends GCanvas
+public class NameSurferGraph extends GraphicsProgram
 	implements NameSurferConstants, ComponentListener {
 
 	/**
@@ -20,8 +22,19 @@ public class NameSurferGraph extends GCanvas
 	public NameSurferGraph() {
 		addComponentListener(this);
 		
-		GLine margin = new GLine(0,GRAPH_MARGIN_SIZE,getWidth(),getHeight()-GRAPH_MARGIN_SIZE);
-		add(margin);
+		GLine topMargin = new GLine(0,GRAPH_MARGIN_SIZE,getWidth(),GRAPH_MARGIN_SIZE);
+		graph.add(topMargin);
+		
+		GLine botMargin = new GLine(0,getHeight()-GRAPH_MARGIN_SIZE,getWidth(),getHeight()-GRAPH_MARGIN_SIZE)
+		graph.add(botMargin);
+		
+		for(int i=1;i<=NDECADES;i++){
+			
+		GLine decadeColumns = new GLine((getWidth()/10)*i,0,(getWidth()/10)*i,getHeight());
+		add(decadeColumns);
+		add(graph);
+			
+		}
 	}
 	
 	/**
@@ -58,7 +71,7 @@ public class NameSurferGraph extends GCanvas
 	
 	
 	/* Implementation of the ComponentListener interface */
-	private GObject graph;
+	private GCompound graph;
 	public void componentHidden(ComponentEvent e) { }
 	public void componentMoved(ComponentEvent e) { }
 	public void componentResized(ComponentEvent e) { update(); }

@@ -84,9 +84,8 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 
 		for (int i = 0; i < entryArray.size(); i++) {
 
-			drawEntry(entryArray.get(i),i);
-			
-			
+			drawEntry(entryArray.get(i), i);
+
 		}
 	}
 
@@ -99,25 +98,34 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 			
 			data.setColor(colorCycle(color));
 			add(data);
+			
+			
+			
+			
 		}
+			for(int i =0;i < NDECADES;i++ ){
+			
+			GLabel name = new GLabel(entry.getName(),spacing*i,getRankY(entry.getRank(i));
+			
+		}
+	
 	}
 
 	private double getRankY(int rank) {
 		double rankD = rank;
-		
+
 		if (rank != 0) {
-			rankD = ((rankD / MAX_RANK) * (getHeight()-2*GRAPH_MARGIN_SIZE)) + GRAPH_MARGIN_SIZE;
-			
-			
+			rankD = ((rankD / MAX_RANK) * (getHeight() - 2 * GRAPH_MARGIN_SIZE)) + GRAPH_MARGIN_SIZE;
+
 		} else {
 			rankD = getHeight() - GRAPH_MARGIN_SIZE;
-			
+
 		}
 		return rankD;
 	}
 
 	private Color colorCycle(int color) {
-		
+
 		switch (color) {
 
 		case 0:

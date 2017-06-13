@@ -90,7 +90,7 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 	}
 
 	private void drawEntry(NameSurferEntry entry) {
-		int spacing = getWidth() / NDECADES;
+		double spacing = getWidth() / NDECADES;
 		for (int i = 0; i < NDECADES - 1; i++) {
 
 			GLine data = new GLine(spacing * i, getRankY(entry.getRank(i)),
@@ -105,9 +105,7 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 		double rankD = rank;
 		
 		if (rank != 0) {
-			rankD = rankD /MAX_RANK;
-			rankD = rankD * graphSpace;
-			rankD= rankD + GRAPH_MARGIN_SIZE;
+			rankD = ((rankD / MAX_RANK) * graphSpace) + GRAPH_MARGIN_SIZE;
 			
 			
 		} else {

@@ -52,8 +52,10 @@ public class NameSurfer extends Program implements NameSurferConstants {
 		}
 		if (e.getSource() == graphButton) {
 			NameSurferEntry entry = nameData.findEntry(nameField.getText());
+			if(entry!=null){
 			graph.addEntry(entry);
 			graph.update();	
+			}
 		}
 		if (e.getSource() == clearButton) {
 			graph.clear();	}

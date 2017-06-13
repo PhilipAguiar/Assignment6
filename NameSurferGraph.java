@@ -93,7 +93,7 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 		double spacing = getWidth() / NDECADES;
 		for (int i = 0; i < NDECADES - 1; i++) {
 
-			GLine data = new GLine(spacing * i, (-getRankY(entry.getRank(i))),
+			GLine data = new GLine(spacing * i, getRankY(entry.getRank(i)),
 					spacing * (i + 1), getRankY(entry.getRank(i + 1)));
 			
 			data.setColor(colorCycle(color));

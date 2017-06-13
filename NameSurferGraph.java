@@ -25,7 +25,7 @@ public class NameSurferGraph extends GraphicsProgram
 		GLine topMargin = new GLine(0,GRAPH_MARGIN_SIZE,getWidth(),GRAPH_MARGIN_SIZE);
 		graph.add(topMargin);
 		
-		GLine botMargin = new GLine(0,getHeight()-GRAPH_MARGIN_SIZE,getWidth(),getHeight()-GRAPH_MARGIN_SIZE)
+		GLine botMargin = new GLine(0,getHeight()-GRAPH_MARGIN_SIZE,getWidth(),getHeight()-GRAPH_MARGIN_SIZE);
 		graph.add(botMargin);
 		
 		for(int i=1;i<=NDECADES;i++){

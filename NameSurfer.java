@@ -21,14 +21,17 @@ public class NameSurfer extends Program implements NameSurferConstants {
 	public void init() {
 		nameLabel = new JLabel("Name: ");
 		add(nameLabel,SOUTH);
-	    add(name,SOUTH);
+	    add(nameField,SOUTH);
 	    
-	    graph = new JButton("Graph");
-	    clear= new JButton("Clear");
-	    add(graph,SOUTH);
-	    add(clear,SOUTH);
+	    graphButton = new JButton("Graph");
+	    clearButton= new JButton("Clear");
+	    add(graphButton,SOUTH);
+	    add(clearButton,SOUTH);
 	    
-		name.addActionListener(this);
+	    graph = new NameSurferGraph();
+	    add(graph);
+	    
+		nameField.addActionListener(this);
 	    addActionListeners();
 	}
 
@@ -39,11 +42,11 @@ public class NameSurfer extends Program implements NameSurferConstants {
  * button actions.
  */
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == name) {
+		if (e.getSource() == nameField) {
 		}
-		if (e.getSource() == graph) {
+		if (e.getSource() == graphButton) {
 				}
-		if (e.getSource() == clear) {
+		if (e.getSource() == clearButton) {
 				}
 		
 	}
@@ -52,12 +55,11 @@ public class NameSurfer extends Program implements NameSurferConstants {
 /*instance variables*/
 
 private  JLabel nameLabel;
-private JTextField name = new JTextField(20);	
+private JTextField nameField = new JTextField(20);	
 private NameSurferDataBase nameData = new NameSurferDataBase("names-data.txt");
-
-
-private JButton graph;
-private JButton clear;
+private NameSurferGraph graph;
+private JButton graphButton;
+private JButton clearButton;
 }
 
 

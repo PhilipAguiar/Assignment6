@@ -23,16 +23,16 @@ public class NameSurferEntry  implements NameSurferConstants {
 
 		name = line.substring(0, line.indexOf(" "));
 		decades = line.substring(line.indexOf(" ")).trim();
-		separateNums(decades);
+		separatedecades(decades);
 		}
 
-		private void separateNums(String nums){
+		private void separatedecades(String decades){
 
 		for(int parts = 0; parts < NDECADES - 1; parts++){
-		decadeArray[parts] = Integer.parseInt(nums.substring(0, decades.indexOf(" ")));
-		nums = nums.substring(nums.indexOf(" ") + 1);
+		decadeArray[parts] = Integer.parseInt(decades.substring(0, decades.indexOf(" ")));
+		decades = decades.substring(decades.indexOf(" ") + 1);
 		}
-		decadeArray[NDECADES - 1] = Integer.parseInt(nums);
+		decadeArray[NDECADES – 1] = Integer.parseInt(decades);
 		}
 
 	/* Method: getName() */

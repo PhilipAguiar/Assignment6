@@ -15,154 +15,140 @@ import java.awt.*;
 public class NameSurferGraph extends GCanvas implements NameSurferConstants, ComponentListener {
 
 	/**
-	* Creates a new NameSurferGraph object that displays the data.
-	*/
+	 * Creates a new NameSurferGraph object that displays the data.
+	 */
 	public NameSurferGraph() {
-	addComponentListener(this);
-
-	entryGraph = new ArrayList<NameSurferEntry>();
-
+		addComponentListener(this);
+		entryArray = new ArrayList<NameSurferEntry>();
 	}
 
 	/**
-	* Clears the list of name surfer entries stored inside this class.
-	*/
+	 * Clears the list of name surfer entries stored inside this class.
+	 */
 	public void clear() {
-	entryGraph.clear();
-	update();
+		entryArray.clear();
+		update();
 
 	}
 
 	/* Method: addEntry(entry) */
 	/**
-	* Adds a new NameSurferEntry to the list of entries on the display.
-	* Note that this method does not actually draw the graph, but
-	* simply stores the entry; the graph is drawn by calling update.
-	*/
+	 * Adds a new NameSurferEntry to the list of entries on the display. Note
+	 * that this method does not actually draw the graph, but simply stores the
+	 * entry; the graph is drawn by calling update.
+	 */
 	public void addEntry(NameSurferEntry entry) {
-	entryGraph.add(entry);
 
+		entryArray.add(entry);
+
+	}
+
+	private void drawGraph() {
+		/* adds top and bottom horizontal lines */
+
+		GLine topMargin = new GLine(0, GRAPH_MARGIN_SIZE, getWidth(), GRAPH_MARGIN_SIZE);
+		graph.add(topMargin);
+
+		GLine botMargin = new GLine(0, getHeight() - GRAPH_MARGIN_SIZE, getWidth(), getHeight() - GRAPH_MARGIN_SIZE);
+		graph.add(botMargin);
+
+		/* adds column lines */
+		for (int i = 1; i < NDECADES; i++) {
+
+			GLine decadeColumns = new GLine((getWidth() / NDECADES) * i, 0, (getWidth() / NDECADES) * i, getHeight());
+			graph.add(decadeColumns);
+
+		}
+
+		/* adds date labels */
+
+		for (int i = 0; i < NDECADES; i++) {
+			String label = Integer.toString(START_DECADE + (i * 10));
+			GLabel year = new GLabel(label, (getWidth() / NDECADES) * i + 5, getHeight() - 5);
+			graph.add(year);
+		}
+
+		add(graph);
 	}
 
 	/**
-	* Updates the display image by deleting all the graphical objects
-	* from the canvas and then reassembling the display according to
-	* the list of entries. Your application must call update after
-	* calling either clear or addEntry; update is also called whenever
-	* the size of the canvas changes.
-	*/
+	 * Updates the display image by deleting all the graphical objects from the
+	 * canvas and then reassembling the display according to the list of
+	 * entries. Your application must call update after calling either clear or
+	 * addEntry; update is also called whenever the size of the canvas changes.
+	 */
 	public void update() {
-	removeAll();
-	drawGraph();
+		removeAll();
+		graph.removeAll();
+		drawGraph();
 
-	for( int input = 0; input < entryGraph.size(); input++){
+		for (int i = 0; i < entryArray.size(); i++) {
 
-	drawEntry(entryGraph.get(input),input);
+			drawEntry(entryArray.get(i));
 
+		}
 	}
 
+	private void drawEntry(NameSurferEntry entry) {
+		int spacing = getWidth() / NDECADES;
+		for (int i = 0; i < NDECADES - 1; i++) {
+
+			GLine data = new GLine(spacing * i, getRankY(entry.getRank(i)),
+					spacing * (i + 1), getRankY(entry.getRank(i + 1)));
+			color = (color + i) % 4;
+			data.setColor(colorCycle(color));
+			color++;
+			add(data);
+		}
 	}
 
-	private void drawEntry(NameSurferEntry entry, int color){
-	spacing = getWidth() / NDECADES;
+	private int getRankY(int rank) {
 
-	for( int marker = 0; marker < NDECADES - 1; marker++){
-
-	GLine line = new GLine(spacing * marker, vertValue(entry.getRank(marker)),
-	spacing * (marker + 1),vertValue(entry.getRank(marker +1)));
-
-	if(color % 4 == 0){
-	line.setColor(Color.BLUE);
-	}else if(color % 4 == 1){
-	line.setColor(Color.RED);
-	}else if(color % 4 == 2){
-	line.setColor(Color.MAGENTA);
-	}else if(color % 4 == 3){
-	line.setColor(Color.BLACK);
-	}
-	add(line);
+		if (rank != 0) {
+			rank = (rank / MAX_RANK * graphSpace) + GRAPH_MARGIN_SIZE;
+			return rank;
+		} else {
+			rank = getHeight() - GRAPH_MARGIN_SIZE;
+			return rank;
+		}
 	}
 
-	for( int marker = 0; marker < NDECADES; marker++){
-	String labelEntry = "";
+	private Color colorCycle(int color) {
 
-	if(entry.getRank(marker) != 0){
-	labelEntry = entry.getName() + " "+ entry.getRank(marker);
-	}else{
-	labelEntry = entry.getName() + " ";
-	}
+		switch (color) {
 
-	GLabel nameLabel = new GLabel(labelEntry,spacing * marker,vertValue(entry.getRank(marker)));
-	if(color % 4 == 0){
-	nameLabel.setColor(Color.BLUE);
-	}else if(color % 4 == 1){
-	nameLabel.setColor(Color.RED);
-	}else if(color % 4 == 2){
-	nameLabel.setColor(Color.MAGENTA);
-	}else if(color % 4 == 3){
-	nameLabel.setColor(Color.BLACK);
-	}
-	add(nameLabel);
-	}
-	}
+		case 0:
+			return Color.BLACK;
+		case 1:
+			return Color.RED;
+		case 2:
+			return Color.BLUE;
+		case 3:
+			return Color.MAGENTA;
 
-	private double vertValue(int rank){
-	double rankDouble = rank;
+		}
+		return Color.BLACK;
 
-	if(rank != 0){
-	rankDouble = rankDouble / MAX_RANK;
-	rankDouble = rankDouble * ( getHeight() - 2 * GRAPH_MARGIN_SIZE);
-	rankDouble = rankDouble + GRAPH_MARGIN_SIZE;
-	}else{
-	rankDouble = getHeight() - GRAPH_MARGIN_SIZE;
-	}
-
-	return rankDouble;
-	}
-	private void drawGraph(){
-
-	drawHorizLines();
-	drawVertLines();
-	drawDateLabel();
-
-	}
-	private void drawDateLabel(){
-
-	spacing = getWidth() / NDECADES;
-	for(int date = 0; date < NDECADES; date++){
-
-	String dateString = Integer.toString(date * 10 + START_DECADE);
-	GLabel dateLabel = new GLabel(dateString,date * spacing,getHeight() );
-	add(dateLabel);
-	}
-
-	}
-	private void drawVertLines(){
-
-	spacing = getWidth() / NDECADES;
-	for( int lines = 0 ; lines < NDECADES; lines++){
-
-	GLine vertLine = new GLine( (lines + 1) * spacing,0, (lines + 1) * spacing,getHeight() );
-	add(vertLine);
-	}
-
-	}
-	private void drawHorizLines(){
-
-	GLine topLine = new GLine(0,GRAPH_MARGIN_SIZE,getWidth(),GRAPH_MARGIN_SIZE);
-	add(topLine);
-
-	GLine botLine = new GLine(0, getHeight() - GRAPH_MARGIN_SIZE, getWidth(),getHeight() - GRAPH_MARGIN_SIZE);
-	add(botLine);
 	}
 
 	/* Implementation of the ComponentListener interface */
-	public void componentHidden(ComponentEvent e) { }
-	public void componentMoved(ComponentEvent e) { }
-	public void componentResized(ComponentEvent e) { update(); }
-	public void componentShown(ComponentEvent e) { }
 
-	//instance vars
-	private double spacing;
-	private ArrayList<NameSurferEntry> entryGraph;
+	public void componentHidden(ComponentEvent e) {
 	}
+
+	public void componentMoved(ComponentEvent e) {
+	}
+
+	public void componentResized(ComponentEvent e) {
+		update();
+	}
+
+	public void componentShown(ComponentEvent e) {
+	}
+
+	/* instance variables */
+	private int color = 0;
+	private int graphSpace = ((getHeight() - GRAPH_MARGIN_SIZE) - GRAPH_MARGIN_SIZE);
+	private GCompound graph = new GCompound();
+	private ArrayList<NameSurferEntry> entryArray;
+}

@@ -148,7 +148,7 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 
 	/* instance variables */
 	private int color = 0;
-	private double graphSpace = ((getHeight() - GRAPH_MARGIN_SIZE) - GRAPH_MARGIN_SIZE);
+	private double graphSpace = getHeight() - GRAPH_MARGIN_SIZE*2;
 	private GCompound graph = new GCompound();
 	private ArrayList<NameSurferEntry> entryArray;
 }

@@ -94,7 +94,7 @@ public class NameSurferGraph extends GCanvas
 		graph.removeAll();
 		drawGraph();
 		
-		for( int i = 0; i < entryArray.size(); o++){
+		for( int i = 0; i < entryArray.size(); i++){
 
 			drawEntry(entryArray.get(i));
 			

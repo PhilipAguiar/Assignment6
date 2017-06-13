@@ -106,11 +106,13 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 		
 		if (rank != 0) {
 			rankD = ((rankD / MAX_RANK) * graphSpace) + GRAPH_MARGIN_SIZE;
-			return rankD;
+			
+			
 		} else {
 			rankD = getHeight() - GRAPH_MARGIN_SIZE;
-			return rankD;
+			
 		}
+		return rankD;
 	}
 
 	private Color colorCycle(int color) {

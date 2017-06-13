@@ -7,20 +7,18 @@
  */
 
 import acm.graphics.*;
-import acm.program.GraphicsProgram;
-
 import java.awt.event.*;
 import java.util.*;
 import java.awt.*;
 
-public class NameSurferGraph extends GraphicsProgram
+public class NameSurferGraph extends GCanvas
 	implements NameSurferConstants, ComponentListener {
 
 	/**
 	* Creates a new NameSurferGraph object that displays the data.
 	*/
 	public NameSurferGraph() {
-//		addComponentListener(this);
+		addComponentListener(this);
 		
 		GLine topMargin = new GLine(0,GRAPH_MARGIN_SIZE,getWidth(),GRAPH_MARGIN_SIZE);
 		graph.add(topMargin);
@@ -31,10 +29,10 @@ public class NameSurferGraph extends GraphicsProgram
 		for(int i=1;i<=NDECADES;i++){
 			
 		GLine decadeColumns = new GLine((getWidth()/10)*i,0,(getWidth()/10)*i,getHeight());
-		add(decadeColumns);
-		add(graph);
-			
+		graph.add(decadeColumns);
+		
 		}
+		update();
 	}
 	
 	/**
@@ -64,7 +62,8 @@ public class NameSurferGraph extends GraphicsProgram
 	* the size of the canvas changes.
 	*/
 	public void update() {
-		//	 You fill this in //
+		removeAll();
+		add(graph);
 	}
 	
 	
@@ -72,8 +71,8 @@ public class NameSurferGraph extends GraphicsProgram
 	
 	/* Implementation of the ComponentListener interface */
 	private GCompound graph;
-//	public void componentHidden(ComponentEvent e) { }
-	//public void componentMoved(ComponentEvent e) { }
-//	public void componentResized(ComponentEvent e) { update(); }
-	//public void componentShown(ComponentEvent e) { }
+	public void componentHidden(ComponentEvent e) { }
+	public void componentMoved(ComponentEvent e) { }
+	public void componentResized(ComponentEvent e) { update(); }
+	public void componentShown(ComponentEvent e) { }
 }

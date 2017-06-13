@@ -43,6 +43,7 @@ public class NameSurfer extends Program implements NameSurferConstants {
  */
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == nameField) {
+			drawGraph
 		}
 		if (e.getSource() == graphButton) {
 				}
@@ -60,6 +61,7 @@ private NameSurferDataBase nameData = new NameSurferDataBase("names-data.txt");
 private NameSurferGraph graph;
 private JButton graphButton;
 private JButton clearButton;
+
 }
 
 

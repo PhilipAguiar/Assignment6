@@ -20,26 +20,16 @@ public class NameSurferGraph extends GCanvas
 	public NameSurferGraph() {
 		addComponentListener(this);
 		
-		GLine topMargin = new GLine(0,GRAPH_MARGIN_SIZE,getWidth(),GRAPH_MARGIN_SIZE);
-		graph.add(topMargin);
-		
-		GLine botMargin = new GLine(0,getHeight()-GRAPH_MARGIN_SIZE,getWidth(),getHeight()-GRAPH_MARGIN_SIZE);
-		graph.add(botMargin);
-		
-		for(int i=1;i<=NDECADES;i++){
-			
-		GLine decadeColumns = new GLine((getWidth()/10)*i,0,(getWidth()/10)*i,getHeight());
-		graph.add(decadeColumns);
-		
-		}
-		update();
 	}
 	
 	/**
 	* Clears the list of name surfer entries stored inside this class.
 	*/
 	public void clear() {
-		//	 You fill this in //
+		
+		removeAll();
+		drawGraph();
+		
 	}
 	
 	/* Method: addEntry(entry) */
@@ -50,6 +40,31 @@ public class NameSurferGraph extends GCanvas
 	*/
 	public void addEntry(NameSurferEntry entry) {
 		// You fill this in //
+	}
+	
+	private void drawGraph(){
+		
+		GLine topMargin = new GLine(0,GRAPH_MARGIN_SIZE,getWidth(),GRAPH_MARGIN_SIZE);
+		graph.add(topMargin);
+		
+		GLine botMargin = new GLine(0,getHeight()-GRAPH_MARGIN_SIZE,getWidth(),getHeight()-GRAPH_MARGIN_SIZE);
+		graph.add(botMargin);
+		
+		for(int i=1;i<NDECADES;i++){
+			
+		GLine decadeColumns = new GLine((getWidth()/NDECADES)*i,0,(getWidth()/NDECADES)*i,getHeight());
+		graph.add(decadeColumns);
+		
+		}
+		
+		
+		for(int i= 0;i<=NDECADES;i++){
+		String label = Integer.toString(START_DECADE+(i*10));	
+		GLabel year = new GLabel(label,(getWidth()/NDECADES)*i,getHeight());
+		add(year); 	
+		}
+		
+		
 	}
 	
 	
@@ -63,7 +78,7 @@ public class NameSurferGraph extends GCanvas
 	*/
 	public void update() {
 		removeAll();
-		add(graph);
+		drawGraph();
 	}
 	
 	

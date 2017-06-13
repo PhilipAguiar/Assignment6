@@ -105,7 +105,7 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 		}
 			for(int i =0;i < NDECADES;i++ ){
 			
-			GLabel name = new GLabel(entry.getName(),spacing*i,getRankY(entry.getRank(i))-5);
+			GLabel name = new GLabel(entry.getName()+entry.getRank(i),spacing*i,getRankY(entry.getRank(i))-5);
 			add(name);
 		}
 	

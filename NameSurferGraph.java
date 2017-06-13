@@ -96,7 +96,7 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 			GLine data = new GLine(spacing * i, getRankY(entry.getRank(i)),
 					spacing * (i + 1), getRankY(entry.getRank(i + 1)));
 			
-			data.setColor(colorCycle(color));
+			data.setColor(colorCycle(color%4));
 			add(data);
 		}
 	}

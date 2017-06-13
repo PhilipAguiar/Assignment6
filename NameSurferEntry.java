@@ -20,20 +20,22 @@ public class NameSurferEntry  implements NameSurferConstants {
 	 */
 
 	public NameSurferEntry(String line) {
-
 		name = line.substring(0, line.indexOf(" "));
 		decades = line.substring(line.indexOf(" ")).trim();
-		separatedecades(decades);
-		}
 
-		private void separatedecades(String decades){
+		cutDecades(decades);
 
-		for(int parts = 0; parts < NDECADES - 1; parts++){
-		decadeArray[parts] = Integer.parseInt(decades.substring(0, decades.indexOf(" ")));
-		decades = decades.substring(decades.indexOf(" ") + 1);
+	}
+
+	private void cutDecades(String decades) {
+
+		for (int i = 0; i < NDECADES - 1; i++) {
+			decadeArray[i] = Integer.parseInt(decades.substring(0, decades.indexOf(" ")));
+			decades = decades.substring(decades.indexOf(" ") +1);
+
 		}
 		decadeArray[NDECADES - 1] = Integer.parseInt(decades);
-		}
+	}
 
 	/* Method: getName() */
 	/**

@@ -103,7 +103,7 @@ public class NameSurferGraph extends GCanvas
 			GLine data = new GLine((getWidth()/NDECADES)*i,getRankY(i),(getWidth()/NDECADES)*i+1,getRankY(i+1));
 			data.setColor(colorCycle(color));
 			color = (color + i)%4;
-			
+			color++;
 			add(data);
 			
 			

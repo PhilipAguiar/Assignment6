@@ -96,7 +96,7 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 			GLine data = new GLine(spacing * i, getRankY(entry.getRank(i)),
 					spacing * (i + 1), getRankY(entry.getRank(i + 1)));
 			
-			data.setColor(colorCycle(i%4));
+			data.setColor(colorCycle(i));
 			add(data);
 		}
 	}
@@ -116,8 +116,8 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 	}
 
 	private Color colorCycle(int color) {
-
-		switch (color) {
+		
+		switch (color%4) {
 
 		case 0:
 			return Color.BLACK;

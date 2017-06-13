@@ -95,7 +95,7 @@ public class NameSurferGraph extends GCanvas
 		drawGraph();
 		
 		
-		for(int i=0;i<NDECADES-1;i++){
+		for(int i=0;i<entryArray.size();i++){
 			
 			int rank = entryArray.get(i).getRank(i);
 		

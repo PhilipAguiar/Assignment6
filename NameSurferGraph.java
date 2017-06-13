@@ -109,12 +109,12 @@ public class NameSurferGraph extends GCanvas
 	private void drawEntry(NameSurferEntry entry){
 		
 
-		for(int i=0;i<NDECADES;i++){
+		for(int i=0;i<NDECADES-1;i++){
 			
 			int rank = entryArray.get(i).getRank(i);
 		
 			
-			GLine data = new GLine((getWidth()/NDECADES)*i,getRankY(i),(getWidth()/NDECADES)*i+1,getRankY(i+1));
+			GLine data = new GLine((getWidth()/NDECADES)*i,getRankY(entry.getRank(i)),(getWidth()/NDECADES)*i+1,getRankY(entry.getRank(i)));
 			data.setColor(colorCycle(color));
 			color = (color + i)%4;
 			color++;

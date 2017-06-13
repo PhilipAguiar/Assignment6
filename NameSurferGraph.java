@@ -85,7 +85,7 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 		for (int i = 0; i < entryArray.size(); i++) {
 
 			drawEntry(entryArray.get(i));
-			
+			color = (color + i) % 4;
 		}
 	}
 
@@ -95,7 +95,7 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 
 			GLine data = new GLine(spacing * i, getRankY(entry.getRank(i)),
 					spacing * (i + 1), getRankY(entry.getRank(i + 1)));
-			color = (color + i) % 4;
+		
 			data.setColor(colorCycle(color));
 			add(data);
 		}

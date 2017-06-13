@@ -107,6 +107,8 @@ public class NameSurferGraph extends GCanvas
 			data.setColor(colorCycle(color));
 			color = (color + i)%4;
 			
+			add(data);
+			
 			
 			
 		}

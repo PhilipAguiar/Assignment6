@@ -105,7 +105,7 @@ public class NameSurferGraph extends GCanvas implements NameSurferConstants, Com
 		double rankD = rank;
 		
 		if (rank != 0) {
-			rankD = ((rankD / MAX_RANK) * graphSpace) + GRAPH_MARGIN_SIZE;
+			rankD = ((rankD / MAX_RANK) * (graphSpace/MAX_RANK) + GRAPH_MARGIN_SIZE);
 			
 			
 		} else {

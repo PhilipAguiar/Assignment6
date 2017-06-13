@@ -96,7 +96,7 @@ public class NameSurferGraph extends GCanvas
 		
 		for( int i = 0; i < entryArray.size(); o++){
 
-			drawEntry(entryArray.get(i),i);
+			drawEntry(entryArray.get(i));
 			
 			
 		
@@ -119,6 +119,7 @@ public class NameSurferGraph extends GCanvas
 			color = (color + i)%4;
 			color++;
 			add(data);
+		}		
 	}
 	
 	private int getRankY(int rank){
